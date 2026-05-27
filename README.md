@@ -23,7 +23,7 @@ including necessary instructions for the reproducibility of the results.
 Before any use of this code, make sur you get the [dataset](https://zenodo.org/records/19825677) downloaded first in your system. Then adapt all `Y:\repo_egu24\data_paper` found in this readme accordingly.
 
 ## 2.1 Installation
-Get the model on your system by cloning the current directory on the branch `main` or download a zip version.
+Get the model on your system by cloning the current directory on the branch `hydro_uge` or download a zip version.
 
 ***
 
