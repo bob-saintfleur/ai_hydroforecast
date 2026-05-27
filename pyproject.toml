@@ -1,0 +1,24 @@
+[project]
+name = "mlp-hydro-uge"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "hydrogr",
+    "matplotlib",
+    "seaborn",
+    "pandas",
+    "pyarrow",
+    "numpy",
+    "scikit-learn",
+    "joblib",
+    "psutil",
+    "tqdm",
+    "xskillscore",
+    "jupyter",
+    "permetrics",
+    "xarray",
+]
+[tool.uv.sources]
+neuralhydrology = { git = "https://github.com/neuralhydrology/neuralhydrology", rev = "1d5716d66d7195a6224d67b1e1c4b5366fd5e0a7" }

@@ -1,0 +1,389 @@
+{
+    "global_setting": {
+        "run_dir": "runs",
+        "modelName": "mlp_skl",
+        "basin": "01031500",
+        "basin_area": 33.48,
+        "basin_alt": 348,
+        "dataPath": "data\\all_sim_obs_lstm",
+        "basins_file": "data/basin_list",
+        "data_name": "01031500",
+        "target": "debit",
+        "target_transform": null,
+        "normalize_target": false,
+        "predictDta": true,
+        "targetAsInput": true,
+        "eventByYear": true,
+        "future": true,
+        "drop_inter_hp": true,
+        "other_model_use": "no_in_mlp",
+        "use_cumulate": true,
+        "hp": 1,
+        "add_hp_to_window": false,
+        "back_4_no_future": false,
+        "recursive_mode": false,
+        "prediction_recursive": {
+            "hp_start": 1,
+            "hp_end": 7,
+            "hp_step": 1,
+            "forecasting_available": false
+        },
+        "add_moving_average": {
+            "use": false,
+            "size": 10
+        },
+        "cumulator_params": {
+            "forget_factor": 0,
+            "between_event_gap": 4
+        },
+        "use_variable_reduction": false,
+        "testEvent": 2021,
+        "stopEvent": 2020,
+        "seuil_target": {
+            "use": false,
+            "max": 0.25
+        },
+        "hydrologicalYear": false,
+        "test_size": null,
+        "use_following_dates": true,
+        "trainStartDate": "2009/09/01",
+        "trainEndDate": "2018/08/31",
+        "stopStartDate": "2017/09/01",
+        "stopEndDate": "2018/08/31",
+        "testStartDate": "2018/09/01",
+        "testEndDate": "2021/08/31",
+        "randomSeed": 111,
+        "epochs": 10,
+        "n_round": 10,
+        "verbose": 0,
+        "optimizer": "adam",
+        "hidden_layer_nb": 2,
+        "hidden_unit": 10,
+        "inputs_input_layer_ratio": 1,
+        "learning_rate": 0.001,
+        "lrScheduler": null,
+        "earlyStop": false,
+        "earlyStopEpoch": 20,
+        "metrics": [
+            "rmse",
+            "mape"
+        ],
+        "scoring": [
+            "mse"
+        ],
+        "cv": 4,
+        "n_jobs": 4,
+        "train_score": true,
+        "normMethod_minimax": true,
+        "scaleFactor": 1,
+        "lossIndicator": null
+    },
+    "correlation_process": {
+        "auto_windowing": false,
+        "auto_correlate": true,
+        "inertia": "full",
+        "min_depth": 10,
+        "max_depth": 50
+    },
+    "batch_variables": {
+        "meta_data": {
+            "data_name": "01031500",
+            "BASIN_ID": "01031500",
+            "TARGET_ID": "Q_Obs",
+            "To_cumulate": [
+                "P_CM",
+                "P_SWE"
+            ],
+            "future_exception": {
+                "use": false,
+                "feature_list_or_marker": [
+                    "*_MF"
+                ]
+            },
+            "Subbasin": {
+                "use": false,
+                "upstream_stations": [
+                    null
+                ],
+                "middle_or_sides": [
+                    null
+                ],
+                "downstream_stations": [
+                    null
+                ],
+                "other_proxy": [
+                    "_cum",
+                    "VOL_"
+                ]
+            },
+            "To_combine": {
+                "use": false,
+                "Combo_1": {
+                    "name": "",
+                    "list_features": [
+                        null
+                    ],
+                    "operation": "product"
+                },
+                "historical": true,
+                "feature_1": "RAINFALL",
+                "feature_2": "SWI",
+                "operation": "product"
+            },
+            "INFO": [
+                "This option allows the user to specify one or more features by categories, but all features in the lot will",
+                "inherit the same configuration provided in the category. It is useful when several similar features are used"
+            ],
+            "FEATURES_FORMAT": {
+                "alias": null,
+                "list_names": [
+                    null
+                ],
+                "use": false,
+                "reduce": false,
+                "reduction_mode": null,
+                "window_size": null,
+                "future": null,
+                "unit": null,
+                "description": null
+            }
+        },
+        "RAINFALL": {
+            "alias": "P",
+            "list_names": [
+                "P_CM",
+                "P_SWE"
+            ],
+            "use": true,
+            "reduce": false,
+            "reduction_mode": "sum",
+            "window_size": 30,
+            "future": 3,
+            "unit": "(mm/j)",
+            "description": "Rainfall data in millimeter"
+        },
+        "SNOW": {
+            "alias": "SNOW",
+            "list_names": [
+                null
+            ],
+            "use": false,
+            "reduce": false,
+            "reduction_mode": "sum",
+            "window_size": 30,
+            "future": 3,
+            "unit": "(mm/j)",
+            "description": "snow depth"
+        },
+        "TEMPERATURE": {
+            "alias": "T",
+            "list_names": [
+                "T_CM_max",
+                "T_CM_min"
+            ],
+            "use": true,
+            "reduce": false,
+            "reduction_mode": "mean",
+            "window_size": 30,
+            "future": 3,
+            "unit": "(\u00c2\u00b0C)",
+            "description": "Temperature"
+        },
+        "VAPOUR": {
+            "alias": "VP",
+            "list_names": [
+                "VP_CM"
+            ],
+            "use": true,
+            "reduce": false,
+            "reduction_mode": null,
+            "window_size": 30,
+            "future": 1,
+            "unit": "(Pa)",
+            "description": "Vapour pressure"
+        },
+        "PRESSURE": {
+            "alias": "AP",
+            "list_names": [
+                null
+            ],
+            "use": false,
+            "reduce": false,
+            "reduction_mode": null,
+            "window_size": 30,
+            "future": 1,
+            "unit": "(Pa)",
+            "description": "Atmospheric pressure"
+        },
+        "RADIATION": {
+            "alias": "RAD",
+            "list_names": [
+                "RAD_CM"
+            ],
+            "use": true,
+            "reduce": false,
+            "reduction_mode": "mean",
+            "window_size": 30,
+            "future": 3,
+            "unit": "(W/m2)",
+            "description": "Solar radiation"
+        },
+        "ETP": {
+            "alias": "ETP",
+            "list_names": [
+                "ETP_CM"
+            ],
+            "use": true,
+            "reduce": false,
+            "reduction_mode": "mean",
+            "window_size": 30,
+            "future": 3,
+            "unit": "(mm/day)",
+            "description": "Potential Evapotranspiration"
+        },
+        "DEBIT": {
+            "alias": "Q",
+            "list_names": [
+                "Q_Obs"
+            ],
+            "use": true,
+            "reduce": false,
+            "reduction_mode": "mean",
+            "window_size": 10,
+            "future": -1,
+            "unit": "(m3/s)",
+            "description": "Discharges or flow data"
+        },
+        "SWI": {
+            "alias": "SWI",
+            "list_names": [
+                null
+            ],
+            "use": false,
+            "reduce": false,
+            "reduction_mode": "mean",
+            "window_size": 30,
+            "future": -1,
+            "unit": "--",
+            "description": "Soil Water Index"
+        },
+        "PIEZO": {
+            "alias": "Pz",
+            "list_names": [
+                null
+            ],
+            "use": false,
+            "reduce": false,
+            "reduction_mode": "mean",
+            "window_size": 10,
+            "future": -1,
+            "unit": "(m_NGF)",
+            "description": "Groundwater level or Piezo-meter"
+        },
+        "Combo_PvSWI": {
+            "alias": "Combo",
+            "list_names": [
+                null
+            ],
+            "use": false,
+            "reduce": false,
+            "reduction_mode": "mean",
+            "window_size": 10,
+            "future": -1,
+            "unit": "(mm)",
+            "description": "Combination of features"
+        },
+        "STORAGE": {
+            "alias": "Sto",
+            "list_names": [
+                null
+            ],
+            "use": false,
+            "reduce": false,
+            "reduction_mode": "sum",
+            "window_size": 10,
+            "future": 0,
+            "unit": "(m3/j)",
+            "description": "Dam storage every time step"
+        },
+        "RECHARGE": {
+            "alias": "Rech",
+            "list_names": [
+                null
+            ],
+            "use": false,
+            "reduce": false,
+            "reduction_mode": "sum",
+            "window_size": 10,
+            "future": 0,
+            "unit": "(m3/j)",
+            "description": "Ground water recharge"
+        },
+        "RELEASE": {
+            "alias": "Rel",
+            "list_names": [
+                null
+            ],
+            "use": false,
+            "reduce": false,
+            "reduction_mode": "sum",
+            "window_size": 10,
+            "future": 0,
+            "unit": "(m3/j)",
+            "description": "Dam released every time step"
+        },
+        "PUMPING": {
+            "alias": "Prel",
+            "list_names": [
+                null
+            ],
+            "use": false,
+            "reduce": false,
+            "reduction_mode": "sum",
+            "window_size": 10,
+            "future": 0,
+            "unit": "(m3/j)",
+            "description": "Groundwater withdrawal or pumped out"
+        },
+        "VOLUME": {
+            "alias": "VOL",
+            "list_names": [
+                null
+            ],
+            "use": false,
+            "reduce": false,
+            "reduction_mode": "sum",
+            "window_size": 10,
+            "future": 0,
+            "unit": "(m3/j)",
+            "description": "Dam storage every time step"
+        },
+        "WIND": {
+            "alias": "WD",
+            "list_names": [
+                null
+            ],
+            "use": false,
+            "reduce": false,
+            "reduction_mode": "sum",
+            "window_size": 10,
+            "future": 0,
+            "unit": "(m/s)",
+            "description": "Wind speed"
+        },
+        "OTHERS": {
+            "alias": "Alt",
+            "list_names": [
+                null
+            ],
+            "use": false,
+            "reduce": false,
+            "reduction_mode": "sum",
+            "window_size": 10,
+            "future": 0,
+            "unit": "--",
+            "description": "Other variables in the data set"
+        }
+    },
+    "staticInputs": null
+}

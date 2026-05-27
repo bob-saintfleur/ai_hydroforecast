@@ -1,0 +1,63 @@
+{
+  "svr_skl_param_":
+  {
+    "C": [1.0],
+    "cache_size": [100],
+    "coef0": [0.01],
+    "degree": [3],
+    "epsilon": [0.05, 0.1],
+    "gamma": ["scale"],
+    "kernel": ["rbf"],
+    "max_iter": [200],
+    "shrinking": [true],
+    "tol": [0.001],
+    "verbose": [true]
+  },
+  "rfr_skl_param_":
+  {
+    "bootstrap": [true],
+    "n_estimators": [30],
+    "ccp_alpha": [0.0],
+    "criterion": ["squared_error"],
+    "min_samples_leaf": [2],
+    "min_samples_split": [2],
+    "max_depth": null,
+    "max_features": [0.3],
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": [0.0],
+    "min_weight_fraction_leaf": [0.0],
+    "n_jobs": [2],
+    "oob_score": [true],
+    "random_state": null,
+    "verbose": [1],
+    "warm_start": [false]
+  },
+  
+  "mlp_skl_param_":
+  {
+    "activation": ["relu"],
+    "alpha": [0.0001],
+    "batch_size": ["auto"],
+    "beta_1": [0.9],
+    "beta_2": [0.999],
+    "early_stopping": [true],
+    "epsilon": [1e-08],
+    "hidden_layer_sizes": [[120, 90, 60]],
+    "learning_rate": ["constant"],
+    "learning_rate_init": [0.001, 0.01],
+    "max_fun": [150],
+    "max_iter": [200],
+    "momentum": [0.9],
+    "n_iter_no_change": [15],
+    "nesterovs_momentum": [true],
+    "power_t": [0.5],
+    "random_state": null,
+    "shuffle": [false],
+    "solver": ["adam"],
+    "tol": [0.005],
+    "validation_fraction": [0.2],
+    "verbose": [false],
+    "warm_start": [false]
+  }
+}
